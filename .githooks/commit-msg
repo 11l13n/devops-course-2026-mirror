@@ -1,0 +1,6 @@
+#!/bin/sh
+if ! head -n 1 "$1" | grep -Eq '^(feat|fix|docs|chore|refactor|merge|test|ci|build|perf|style)(\([^)]*\))?: .+'; then
+    echo 'ОШИБКА: сообщение не соответствует Conventional Commits.' >&2
+    echo 'Ожидается <type>: <description>' >&2
+    exit 1
+fi
